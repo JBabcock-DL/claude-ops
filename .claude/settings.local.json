@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "Read(//c/Users/jbabc/.claude/**)",
+      "Read(//c/Users/jbabc/AppData/Roaming/Claude/**)",
+      "Read(//c/Users/jbabc/.config/claude/**)",
+      "Bash(ls /c/Users/jbabc/Documents/GitHub/ProcessDemo/.claude*)",
+      "Bash(gh issue:*)",
+      "Bash(gh project:*)",
+      "Bash(gh api:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Default branch:', d.get\\('default_branch'\\)\\); print\\('Private:', d.get\\('private'\\)\\); print\\('Has issues:', d.get\\('has_issues'\\)\\)\")",
+      "Bash(node -e \"let d=''; process.stdin.on\\('data',c=>d+=c\\); process.stdin.on\\('end',\\(\\)=>{const r=JSON.parse\\(d\\); console.log\\('Branch:',r.default_branch,'| Issues:',r.has_issues,'| Private:',r.private\\)}\\)\")",
+      "Bash(npx --yes @figma/mcp --version)",
+      "Bash(npx figma-mcp:*)",
+      "Bash(npx @anthropic-ai/figma-mcp --version)",
+      "Bash(node -e \"let d=''; process.stdin.on\\('data',c=>d+=c\\); process.stdin.on\\('end',\\(\\)=>{const r=JSON.parse\\(d\\); console.log\\('Login:',r.login,'| Email:',r.email\\)}\\)\")",
+      "mcp__claude_ai_Figma__whoami"
+    ]
+  }
+}
