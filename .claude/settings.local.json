@@ -17,7 +17,8 @@
       "Bash(npx figma-mcp:*)",
       "Bash(npx @anthropic-ai/figma-mcp --version)",
       "Bash(node -e \"let d=''; process.stdin.on\\('data',c=>d+=c\\); process.stdin.on\\('end',\\(\\)=>{const r=JSON.parse\\(d\\); console.log\\('Login:',r.login,'| Email:',r.email\\)}\\)\")",
-      "mcp__claude_ai_Figma__whoami"
+      "mcp__claude_ai_Figma__whoami",
+      "Bash(gh label:*)"
     ]
   }
 }
