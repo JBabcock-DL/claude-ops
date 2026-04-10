@@ -7,7 +7,7 @@
 ## Handoff Prompt
 
 ```
-You are working on the claude-ops project — a Figma design system visual guide managed through GitHub Issues and a GitHub Project board.
+You are working on the claude-ops project — managed through GitHub Issues and a GitHub Project board.
 
 Before doing anything else, read these files in order:
 
@@ -43,15 +43,47 @@ Brief: [DESCRIBE THE WORK]
 Type: [bug | work-order]
 ```
 
-### Figma Build Agent
+### Planning Agent
 ```
-ROLE: Figma Build
+ROLE: Planning
 
-Execute the Figma canvas work described in the ticket and plan below. Do not modify the ticket or GitHub issue — only do the Figma work. Check off each plan.md step as you complete it.
+Write or refine plan.md for the ticket below using plan mode. Do not build anything — your output is the plan only. Ground every step in the ticket's Requirements and Success Criteria. Flag any blockers or open questions.
+
+Ticket:   .github/Sprint {N}/{TICKET-ID}-{slug}/ticket.md
+Plan:     .github/Sprint {N}/{TICKET-ID}-{slug}/plan.md
+Research: .github/Sprint {N}/{TICKET-ID}-{slug}/research/ (read if present)
+```
+
+Planning conventions:
+- Each step must be concrete enough for a build agent to execute without interpretation
+- List any MCP servers or external tools the build agent will need
+- Move the GitHub issue to In Planning when plan.md is written
+- A build agent should not start until all open questions are resolved
+
+---
+
+### Build Agent
+```
+ROLE: Build — [SPECIFY DOMAIN, e.g. Figma / Frontend / Backend / Data / etc.]
+
+Execute the work described in the ticket and plan below. Stay within the scope of your domain — do not modify the ticket or GitHub issue. Check off each plan.md step as you complete it.
 
 Ticket: .github/Sprint {N}/{TICKET-ID}-{slug}/ticket.md
 Plan:   .github/Sprint {N}/{TICKET-ID}-{slug}/plan.md
 ```
+
+#### Build Domain Variants
+
+Swap the ROLE line above for the domain that applies:
+
+| Domain | ROLE value | Scope |
+|---|---|---|
+| Figma | `Build — Figma` | Canvas work: frames, components, variables, Code Connect |
+| Frontend | `Build — Frontend` | UI implementation: components, styles, interactions |
+| Backend | `Build — Backend` | Services, APIs, data models, infrastructure |
+| Data / Research | `Build — Data` | Queries, transforms, analysis scripts, data outputs |
+| Content | `Build — Content` | Copy, documentation, structured content files |
+| <!-- ADD YOUR DOMAIN --> | `Build — [Domain]` | [What this agent touches] |
 
 ### Research Agent
 ```
