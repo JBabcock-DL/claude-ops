@@ -6,7 +6,10 @@ This document describes how this project is structured and how work is tracked. 
 
 ## Project Goal
 
-Build a design system visual guide in Figma and manage all work through GitHub Issues synced to the **Process Demo** GitHub Project board.
+<!-- ADD YOUR GOAL HERE — describe what this project is building or solving -->
+[ADD YOUR GOAL HERE]
+
+All work is managed through GitHub Issues synced to the **Process Demo** GitHub Project board.
 
 ---
 
@@ -96,12 +99,33 @@ gh project item-list 1 --owner JBabcock-DL
 
 ---
 
-## Figma Integration
+## MCP Integrations
 
-Figma work is driven by tickets. Each work order that involves canvas changes should:
-- Reference the Figma file URL in `ticket.md` under **References**
-- Document what was built or changed in `plan.md` after completion
-- The Figma MCP (`mcp__claude_ai_Figma__*`) is available for reading designs, writing to canvas, and managing variables
+MCP (Model Context Protocol) servers extend what agents can do within this workflow — connecting to external tools, APIs, and platforms without leaving the ticket lifecycle. Any MCP-driven work should still be tied to a ticket.
+
+### General conventions for MCP work
+- Reference any external resource URLs (files, boards, APIs) in `ticket.md` under **References**
+- Document what was read, written, or changed via MCP in `plan.md` after completion
+- MCP tool calls are treated as implementation steps — they belong in the work phase, after a plan exists
+
+### Available MCP servers
+
+#### Figma (`mcp__claude_ai_Figma__*`)
+Read designs, write to the Figma canvas, manage variables and component code connections.
+
+Use when a work order involves:
+- Reading a Figma design to inform implementation
+- Writing components, frames, or variables back to a Figma file
+- Generating diagrams in FigJam
+- Managing Code Connect mappings between Figma and the codebase
+
+<!-- ADD YOUR MCP SERVERS HERE
+#### [Server Name] (`mcp__<server>__*`)
+Brief description of what it connects to and what it can do.
+
+Use when a work order involves:
+- ...
+-->
 
 ---
 
