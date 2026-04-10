@@ -2,6 +2,7 @@
 type: work-order
 status: open
 labels: [work-order, design-system, tokens]
+github_issue: 2
 ---
 
 # [WO-001] Establish color token foundation in design system visual guide

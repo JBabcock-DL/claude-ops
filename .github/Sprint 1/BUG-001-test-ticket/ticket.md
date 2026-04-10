@@ -2,6 +2,7 @@
 type: bug
 status: open
 labels: [bug, test]
+github_issue: 1
 ---
 
 # [BUG-001] Button component renders incorrect hover state color
