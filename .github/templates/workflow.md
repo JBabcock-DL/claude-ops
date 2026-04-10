@@ -42,12 +42,13 @@ All work is managed through GitHub Issues synced to the **claude-ops** GitHub Pr
 
 ## Ticket Lifecycle
 
-1. **Draft locally** — create a folder under the current sprint using the ticket ID and slug, add `ticket.md` from the appropriate template
-2. **Create GitHub Issue** — push the ticket to GitHub using `gh issue create`, referencing the correct label
-3. **Sync to Project** — add the issue to the **claude-ops** project board (`gh project item-add`)
-4. **Add a plan** — create `plan.md` in the ticket folder outlining approach and steps
-5. **Do the work** — place any scripts, data, or research files inside the ticket folder
-6. **Move to Completed** — update the project board status when the work is done
+1. **Create ticket** — `/create-ticket` creates the folder, `ticket.md`, stub `plan.md`, GitHub issue, and syncs to the board (status: **Context Backlog**)
+2. **Research** *(optional, recommended for unfamiliar work)* — `/research` investigates the problem domain and writes findings to `research/`; moves ticket to **In Research**, then **In Planning** on completion
+3. **Plan** — `/plan` enters plan mode for interactive review, then writes the approved plan to `plan.md`; ticket stays **In Planning**
+4. **Build** — do the work; move the ticket to **In Build** when starting
+5. **Verify** — `/vqa` runs a QA pass; moves ticket to **In Verification** → **Completed**
+
+> Skip research for well-understood, mechanical tickets where requirements are unambiguous.
 
 ---
 

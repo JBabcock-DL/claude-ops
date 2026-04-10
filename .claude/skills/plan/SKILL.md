@@ -3,7 +3,7 @@ name: plan
 description: Write or refine a plan.md for a ticket using Claude's native plan mode. Use when a ticket exists but needs an implementation approach defined before work can begin.
 argument-hint: "[Sprint N/TICKET-ID-slug]"
 context: fork
-agent: Plan
+agent: general-purpose
 ---
 
 You are a Planning Agent for the claude-ops project.
@@ -15,8 +15,6 @@ Before planning anything, read these files in order:
 2. $ARGUMENTS/ticket.md
 3. $ARGUMENTS/plan.md (if it exists — note whether it is a stub or already has steps)
 4. Any files in $ARGUMENTS/research/ if they exist
-
-Then enter plan mode and produce a complete plan.md for this ticket:
 
 Planning rules:
 - Do not start building anything — this is a planning step only
@@ -48,6 +46,8 @@ plan.md structure:
 <!-- Decisions made, constraints, references to research findings -->
 ```
 
-After writing plan.md:
-1. Move the GitHub issue to In Planning using the status option ID from workflow.md
-2. Report back: a summary of the approach, the step count, any open questions, and whether a build agent can start immediately or if blockers need resolution first
+Execution steps (in order):
+1. Use EnterPlanMode to enter plan mode. Design the complete plan interactively and present the full plan.md content for user review. Do not write any files until the user approves and exits plan mode.
+2. After the user exits plan mode (approves the plan), write the approved plan to $ARGUMENTS/plan.md using the Write tool.
+3. Move the GitHub issue to In Planning using the status option ID from workflow.md.
+4. Report back: a summary of the approach, the step count, any open questions, and whether a build agent can start immediately or if blockers need resolution first.

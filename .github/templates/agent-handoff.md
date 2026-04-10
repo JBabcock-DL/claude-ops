@@ -64,9 +64,9 @@ Planning conventions:
 
 ### Build Agent
 ```
-ROLE: Build — [SPECIFY DOMAIN, e.g. Figma / Frontend / Backend / Data / etc.]
+ROLE: Build — [SPECIFY DOMAIN — see variants below]
 
-Execute the work described in the ticket and plan below. Stay within the scope of your domain — do not modify the ticket or GitHub issue. Check off each plan.md step as you complete it.
+Execute the work described in the ticket and plan below. Stay within the scope of your domain — do not modify the ticket or GitHub issue. Check off each plan.md step as you complete it. Move the GitHub issue to In Build when starting.
 
 Ticket: .github/Sprint {N}/{TICKET-ID}-{slug}/ticket.md
 Plan:   .github/Sprint {N}/{TICKET-ID}-{slug}/plan.md
@@ -74,22 +74,23 @@ Plan:   .github/Sprint {N}/{TICKET-ID}-{slug}/plan.md
 
 #### Build Domain Variants
 
-Swap the ROLE line above for the domain that applies:
+Use the skill that matches the work. Multiple build skills can run sequentially on the same ticket.
 
-| Domain | ROLE value | Scope |
-|---|---|---|
-| Figma | `Build — Figma` | Canvas work: frames, components, variables, Code Connect |
-| Frontend | `Build — Frontend` | UI implementation: components, styles, interactions |
-| Backend | `Build — Backend` | Services, APIs, data models, infrastructure |
-| Data / Research | `Build — Data` | Queries, transforms, analysis scripts, data outputs |
-| Content | `Build — Content` | Copy, documentation, structured content files |
-| <!-- ADD YOUR DOMAIN --> | `Build — [Domain]` | [What this agent touches] |
+| Skill | ROLE value | Scope | Invoke with |
+|---|---|---|---|
+| code-build | `Build — Code` | Write or modify code files | `/code-build` |
+| doc-build | `Build — Docs` | Guides, READMEs, reference documentation | `/doc-build` |
+| script-build | `Build — Scripts` | Bash, PowerShell, Python automation | `/script-build` |
+| api-build | `Build — API` | API integrations, Claude API / Anthropic SDK | `/api-build` |
+| figma-build | `Build — Figma` | Canvas work: frames, components, variables, Code Connect | `/figma-build` |
+
+> If a ticket requires more than one domain (e.g. code + docs), run each build skill in order after the previous one completes.
 
 ### Research Agent
 ```
 ROLE: Research
 
-Investigate the topic in the ticket below and write your findings into the research/ subfolder as .md files. Update plan.md with any decisions or blockers. Move the GitHub issue to In Planning when done.
+Investigate the topic in the ticket below and write your findings into the research/ subfolder as .md files. Refine the ticket's Requirements based on findings and add research file links to the ticket's References section. Sync the updated ticket to GitHub. Update plan.md Notes with any decisions or blockers. Move the GitHub issue to In Research when starting — leave it there when done.
 
 Ticket: .github/Sprint {N}/{TICKET-ID}-{slug}/ticket.md
 Output: .github/Sprint {N}/{TICKET-ID}-{slug}/research/{topic}.md
