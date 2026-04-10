@@ -21,7 +21,23 @@
       "Bash(gh label:*)",
       "WebSearch",
       "Bash(git -C \"c:/Users/jbabc/Documents/GitHub/ProcessDemo\" remote set-url origin https://github.com/JBabcock-DL/claude-ops.git)",
-      "Bash(git -C \"c:/Users/jbabc/Documents/GitHub/ProcessDemo\" remote -v)"
+      "Bash(git -C \"c:/Users/jbabc/Documents/GitHub/ProcessDemo\" remote -v)",
+      "Bash(cp \"C:/Users/jbabc/Documents/GitHub/claude-ops/.claude/skills/create-ticket/SKILL.md\" \"C:/Users/jbabc/Documents/GitHub/claude-ops/plugin/skills/create-ticket/SKILL.md\")",
+      "Bash(cp \"C:/Users/jbabc/Documents/GitHub/claude-ops/.claude/skills/research/SKILL.md\" \"C:/Users/jbabc/Documents/GitHub/claude-ops/plugin/skills/research/SKILL.md\")",
+      "Bash(cp \"C:/Users/jbabc/Documents/GitHub/claude-ops/.claude/skills/plan/SKILL.md\" \"C:/Users/jbabc/Documents/GitHub/claude-ops/plugin/skills/plan/SKILL.md\")",
+      "Bash(cp \"C:/Users/jbabc/Documents/GitHub/claude-ops/.claude/skills/figma-build/SKILL.md\" \"C:/Users/jbabc/Documents/GitHub/claude-ops/plugin/skills/figma-build/SKILL.md\")",
+      "Bash(cp \"C:/Users/jbabc/Documents/GitHub/claude-ops/.claude/skills/vqa/SKILL.md\" \"C:/Users/jbabc/Documents/GitHub/claude-ops/plugin/skills/vqa/SKILL.md\")",
+      "Bash(chmod +x /c/Users/jbabc/Documents/GitHub/claude-ops/plugin/install.sh)",
+      "Bash(bash -n /c/Users/jbabc/Documents/GitHub/claude-ops/plugin/install.sh)",
+      "Bash(mkdir -p /c/Users/jbabc/AppData/Local/Temp/plugin-smoke-test)",
+      "Read(//c/Users/jbabc/AppData/Local/Temp/**)",
+      "Bash(bash /c/Users/jbabc/Documents/GitHub/claude-ops/plugin/install.sh)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(bash /c/Users/jbabc/Documents/GitHub/claude-ops/plugin/install.sh --force)",
+      "Bash(mkdir -p /c/Users/jbabc/AppData/Local/Temp/plugin-smoke-test-ps)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"C:\\\\\\\\Users\\\\\\\\jbabc\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\claude-ops\\\\\\\\plugin\\\\\\\\install.ps1\" -WorkingDirectory \"C:\\\\\\\\Users\\\\\\\\jbabc\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\plugin-smoke-test-ps\")",
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -Command 'Set-Location '\\\\''C:\\\\Users\\\\jbabc\\\\AppData\\\\Local\\\\Temp\\\\plugin-smoke-test-ps'\\\\''; & '\\\\''C:\\\\Users\\\\jbabc\\\\Documents\\\\GitHub\\\\claude-ops\\\\plugin\\\\install.ps1'\\\\''')"
     ]
   }
 }

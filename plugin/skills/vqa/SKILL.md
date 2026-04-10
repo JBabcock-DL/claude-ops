@@ -17,13 +17,12 @@ Before reviewing anything, read these files in order:
 4. Any files in $ARGUMENTS/research/ if they exist
 
 Then:
-1. Move the GitHub issue to In Verification using the status option ID from workflow.md and the project_item_id from ticket.md frontmatter.
-2. Extract every item from the ticket's Success Criteria and Testing & VQA sections.
-3. Evaluate each item — check plan.md, research files, and actual output files as needed.
-4. Mark each as PASS or FAIL with a one-line note.
-5. Write a full report to: $ARGUMENTS/research/vqa-report.md
+1. Extract every item from the ticket's Success Criteria and Testing & VQA sections
+2. Evaluate each item — check plan.md, research files, and Figma state as needed
+3. Mark each as PASS or FAIL with a one-line note
+4. Write a full report to: $ARGUMENTS/research/vqa-report.md
    - Sections: Summary, Criteria Results (table), Failures Detail, Recommendation
-6. Decision:
+5. Decision:
    - All pass → move GitHub issue to Completed
-   - Any fail → move GitHub issue back to In Build, post a GitHub comment listing each failure with a short description
-7. Report back: pass/fail counts, report file path, and the action taken on the GitHub issue
+   - Any fail → move GitHub issue to In Build, post a GitHub comment listing the failures
+6. Report back: pass/fail counts, report file path, and the action taken on the GitHub issue
