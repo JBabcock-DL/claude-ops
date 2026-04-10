@@ -3,8 +3,9 @@ id: WO-002
 title: Create DL-Agent-Workflow Claude Code Plugin
 type: work-order
 sprint: 1
-status: Context Backlog
+status: In Research
 github_issue: 4
+project_item_id: PVTI_lAHOD9B30s4BTj7zzgponuA
 ---
 
 ## Problem Story

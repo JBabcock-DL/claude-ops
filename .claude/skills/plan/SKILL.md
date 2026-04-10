@@ -2,7 +2,6 @@
 name: plan
 description: Write or refine a plan.md for a ticket using Claude's native plan mode. Use when a ticket exists but needs an implementation approach defined before work can begin.
 argument-hint: "[Sprint N/TICKET-ID-slug]"
-context: fork
 agent: general-purpose
 ---
 
@@ -36,6 +35,18 @@ plan.md structure:
 - [ ] Step 2 — [concrete action]
 - [ ] ...
 
+## Build Agents
+<!-- Ordered build phases for the /build orchestrator.
+     Agents within a phase run in parallel. Phases run sequentially.
+     Assign each step to exactly one agent. -->
+
+### Phase 1 (parallel)
+- `{domain}-build` — Steps N–N: [what this agent builds]
+
+### Phase 2 (parallel, after Phase 1)
+- `{domain}-build` — Steps N–N: [what this agent builds]
+- `{domain}-build` — Steps N–N: [what this agent builds]
+
 ## Dependencies & Tools
 <!-- MCP servers, external systems, or other tickets this depends on -->
 
@@ -46,8 +57,14 @@ plan.md structure:
 <!-- Decisions made, constraints, references to research findings -->
 ```
 
+Rules for the Build Agents section:
+- Every step in the Steps list must be assigned to exactly one agent
+- Group steps by domain: code-build, doc-build, script-build, api-build, figma-build
+- Steps with no inter-step dependencies can be parallelized across phases
+- Steps that depend on output from earlier steps must be in a later phase
+
 Execution steps (in order):
-1. Use EnterPlanMode to enter plan mode. Design the complete plan interactively and present the full plan.md content for user review. Do not write any files until the user approves and exits plan mode.
-2. After the user exits plan mode (approves the plan), write the approved plan to $ARGUMENTS/plan.md using the Write tool.
-3. Move the GitHub issue to In Planning using the status option ID from workflow.md.
-4. Report back: a summary of the approach, the step count, any open questions, and whether a build agent can start immediately or if blockers need resolution first.
+1. Use EnterPlanMode to enter plan mode. During plan mode, write the complete plan content to the plan file using the Write tool. Present the plan for user review. Do not touch the ticket folder yet.
+2. After the user approves and ExitPlanMode completes, IMMEDIATELY write the full plan content to $ARGUMENTS/plan.md using the Write tool. This is required — the plan mode file and the ticket plan.md are separate files. Do not skip this step.
+3. IMMEDIATELY after writing plan.md, move the GitHub issue to In Planning using the GraphQL mutation from workflow.md and the item ID from the ticket's github_issue frontmatter field.
+4. Report back: confirm plan.md was written, confirm the GitHub issue was moved to In Planning, summarize the approach and step count, list any open questions, and state whether a build agent can start immediately.

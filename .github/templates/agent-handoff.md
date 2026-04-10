@@ -57,34 +57,49 @@ Research: .github/Sprint {N}/{TICKET-ID}-{slug}/research/ (read if present)
 Planning conventions:
 - Each step must be concrete enough for a build agent to execute without interpretation
 - List any MCP servers or external tools the build agent will need
+- plan.md MUST include a `## Build Agents` section defining parallel phases — the `/build` orchestrator requires it
+- Every step must be assigned to exactly one build domain in the `## Build Agents` section
+- Independent steps can be parallelized across phases; steps with dependencies on earlier output must be in a later phase
 - Move the GitHub issue to In Planning when plan.md is written
 - A build agent should not start until all open questions are resolved
 
 ---
 
-### Build Agent
+### Build Orchestrator Agent
 ```
-ROLE: Build — [SPECIFY DOMAIN — see variants below]
+ROLE: Build Orchestrator
 
-Execute the work described in the ticket and plan below. Stay within the scope of your domain — do not modify the ticket or GitHub issue. Check off each plan.md step as you complete it. Move the GitHub issue to In Build when starting.
+Run the full build phase for the ticket below. Read the `## Build Agents` section of plan.md to determine phases. Move the ticket to In Build. Spawn all agents within each phase IN PARALLEL (single message, multiple Agent tool calls). Run phases SEQUENTIALLY — wait for all agents in Phase N before starting Phase N+1. Verify all steps are checked off when done.
 
 Ticket: .github/Sprint {N}/{TICKET-ID}-{slug}/ticket.md
 Plan:   .github/Sprint {N}/{TICKET-ID}-{slug}/plan.md
 ```
 
-#### Build Domain Variants
+> Preferred entry point for the build step: `/build`. This orchestrates all domains automatically.
 
-Use the skill that matches the work. Multiple build skills can run sequentially on the same ticket.
+---
+
+### Build Domain Agent
+```
+ROLE: Build — [SPECIFY DOMAIN — spawned by /build orchestrator or run directly for single-domain tickets]
+
+Execute only the steps assigned to your domain in the plan below. Do not modify ticket.md or the GitHub issue. Check off each assigned step in plan.md as you complete it.
+
+Ticket: .github/Sprint {N}/{TICKET-ID}-{slug}/ticket.md
+Plan:   .github/Sprint {N}/{TICKET-ID}-{slug}/plan.md
+Steps:  [LIST THE SPECIFIC STEP NUMBERS ASSIGNED TO THIS AGENT]
+```
+
+#### Build Domain Variants
 
 | Skill | ROLE value | Scope | Invoke with |
 |---|---|---|---|
+| build | `Build Orchestrator` | Orchestrates all domains via parallel phases | `/build` ← preferred |
 | code-build | `Build — Code` | Write or modify code files | `/code-build` |
 | doc-build | `Build — Docs` | Guides, READMEs, reference documentation | `/doc-build` |
 | script-build | `Build — Scripts` | Bash, PowerShell, Python automation | `/script-build` |
 | api-build | `Build — API` | API integrations, Claude API / Anthropic SDK | `/api-build` |
 | figma-build | `Build — Figma` | Canvas work: frames, components, variables, Code Connect | `/figma-build` |
-
-> If a ticket requires more than one domain (e.g. code + docs), run each build skill in order after the previous one completes.
 
 ### Research Agent
 ```

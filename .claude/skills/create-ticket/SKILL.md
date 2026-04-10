@@ -22,9 +22,10 @@ Then execute the full ticket lifecycle from workflow.md:
 1. Determine the current sprint folder and next sequential ticket ID by checking what already exists under .github/Sprint */
 2. Generate the ticket slug from the title (lowercase, hyphenated, max 5 words)
 3. Create the folder: .github/Sprint {N}/{TICKET-ID}-{slug}/
-4. Write ticket.md using the correct template — populate all sections based on the title provided. Set github_issue frontmatter to TBD for now.
+4. Write ticket.md using the correct template — populate all sections based on the title provided. Set github_issue and project_item_id frontmatter fields to TBD for now.
 5. Write a stub plan.md
 6. Create the GitHub issue using gh CLI with the correct label (bug or work-order)
 7. Capture the issue number and update the github_issue field in ticket.md
-8. Add the issue to the Process Demo project board
-9. Report back: ticket folder path, GitHub issue URL, and project item ID
+8. Add the issue to the Process Demo project board; capture the returned project item ID (PVTI_...)
+9. Update the project_item_id field in ticket.md with the captured project item ID
+10. Report back: ticket folder path, GitHub issue URL, and project item ID

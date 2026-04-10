@@ -43,9 +43,9 @@ All work is managed through GitHub Issues synced to the **claude-ops** GitHub Pr
 ## Ticket Lifecycle
 
 1. **Create ticket** — `/create-ticket` creates the folder, `ticket.md`, stub `plan.md`, GitHub issue, and syncs to the board (status: **Context Backlog**)
-2. **Research** *(optional, recommended for unfamiliar work)* — `/research` investigates the problem domain and writes findings to `research/`; moves ticket to **In Research**, then **In Planning** on completion
-3. **Plan** — `/plan` enters plan mode for interactive review, then writes the approved plan to `plan.md`; ticket stays **In Planning**
-4. **Build** — do the work; move the ticket to **In Build** when starting
+2. **Research** *(optional, recommended for unfamiliar work)* — `/research` investigates the problem domain and writes findings to `research/`; moves ticket to **In Research**
+3. **Plan** — `/plan` enters plan mode for interactive review, writes the approved plan to `plan.md` (including a `## Build Agents` section defining parallel phases), and moves ticket to **In Planning**
+4. **Build** — `/build` reads the `## Build Agents` section, moves ticket to **In Build**, and spawns build agents in parallel phases; agents within a phase run simultaneously, phases run sequentially. Individual build skills (`/code-build`, `/doc-build`, `/script-build`, `/api-build`, `/figma-build`) can be used directly for single-domain tickets.
 5. **Verify** — `/vqa` runs a QA pass; moves ticket to **In Verification** → **Completed**
 
 > Skip research for well-understood, mechanical tickets where requirements are unambiguous.

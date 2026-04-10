@@ -13,11 +13,12 @@ These slash commands are available in this project. Run them in order:
 | 1 | `/create-ticket [bug\|wo] "[title]"` | Creates a ticket locally and syncs it to GitHub |
 | 2 | `/research [Sprint N/TICKET-ID-slug] "[topic]"` | Runs a research agent on a ticket *(optional)* |
 | 3 | `/plan [Sprint N/TICKET-ID-slug]` | Writes plan.md using plan mode — presents for review before saving |
-| 4 | `/code-build [Sprint N/TICKET-ID-slug]` | Implements code changes defined in plan.md |
-| 4 | `/doc-build [Sprint N/TICKET-ID-slug]` | Writes documentation defined in plan.md |
-| 4 | `/script-build [Sprint N/TICKET-ID-slug]` | Writes automation or shell scripts defined in plan.md |
-| 4 | `/api-build [Sprint N/TICKET-ID-slug]` | Builds API integrations or Claude API features defined in plan.md |
-| 4 | `/figma-build [Sprint N/TICKET-ID-slug]` | Executes Figma canvas work defined in plan.md |
+| 4 | `/build [Sprint N/TICKET-ID-slug]` | Orchestrates all build agents in parallel phases — preferred entry point for the build step |
+| 4 | `/code-build [Sprint N/TICKET-ID-slug]` | Run individually if only code work is needed |
+| 4 | `/doc-build [Sprint N/TICKET-ID-slug]` | Run individually if only doc work is needed |
+| 4 | `/script-build [Sprint N/TICKET-ID-slug]` | Run individually if only scripting is needed |
+| 4 | `/api-build [Sprint N/TICKET-ID-slug]` | Run individually if only API work is needed |
+| 4 | `/figma-build [Sprint N/TICKET-ID-slug]` | Run individually if only Figma work is needed |
 | 5 | `/vqa [Sprint N/TICKET-ID-slug]` | Runs a VQA pass and closes or recycles the ticket |
 | — | `/project-start [project-name]` | Scaffolds this full workflow system in a new repo |
 
