@@ -43,5 +43,5 @@ We believe that publishing a structured color token page in the Figma design sys
 
 ## References
 - Related bug: #1 — hover token mismatch on Button / Primary
-- Figma file: ProcessDemo Design System (link TBD)
+- Figma file: claude-ops Design System (link TBD)
 - Token naming convention: `category/variant/state`

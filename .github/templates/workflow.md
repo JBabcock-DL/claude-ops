@@ -1,4 +1,4 @@
-# ProcessDemo — Agent Workflow Context
+# claude-ops — Agent Workflow Context
 
 This document describes how this project is structured and how work is tracked. All agents operating in this repo should follow this workflow.
 
@@ -72,10 +72,10 @@ Build a design system visual guide in Figma and manage all work through GitHub I
 
 ```bash
 # Create a GitHub issue
-gh issue create --repo JBabcock-DL/ProcessDemo --title "..." --label "..." --body "..."
+gh issue create --repo JBabcock-DL/claude-ops --title "..." --label "..." --body "..."
 
 # Add issue to project board
-gh project item-add 1 --owner JBabcock-DL --url https://github.com/JBabcock-DL/ProcessDemo/issues/{N}
+gh project item-add 1 --owner JBabcock-DL --url https://github.com/JBabcock-DL/claude-ops/issues/{N}
 
 # Move issue to a status column
 gh api graphql -f query='

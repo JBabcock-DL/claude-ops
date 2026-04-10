@@ -25,7 +25,7 @@ Background color transitions to `brand-500` (`#3B82F6`), which only achieves a 3
 ## Environment
 - Component: `Button / Primary`
 - Area: Design System / Tokens
-- Figma file: ProcessDemo Design System
+- Figma file: claude-ops Design System
 
 ## Additional Context
 This likely affects all button variants that use the `brand` token scale on hover. Related to design token audit work.
