@@ -28,13 +28,13 @@ labels: work-order
 - [ ] 
 
 ### Visual / Design QA
-- [ ] Matches Figma spec
-- [ ] Responsive breakpoints verified
+- [ ] 
+- [ ] 
 - [ ] 
 
 ### Accessibility
-- [ ] Color contrast passes WCAG AA (4.5:1 text, 3:1 UI)
-- [ ] Keyboard navigable
+- [ ] 
+- [ ] 
 - [ ] 
 
 ## References

@@ -9,7 +9,7 @@ This document describes how this project is structured and how work is tracked. 
 <!-- ADD YOUR GOAL HERE — describe what this project is building or solving -->
 [ADD YOUR GOAL HERE]
 
-All work is managed through GitHub Issues synced to the **Process Demo** GitHub Project board.
+All work is managed through GitHub Issues synced to the **claude-ops** GitHub Project board.
 
 ---
 
@@ -44,7 +44,7 @@ All work is managed through GitHub Issues synced to the **Process Demo** GitHub 
 
 1. **Draft locally** — create a folder under the current sprint using the ticket ID and slug, add `ticket.md` from the appropriate template
 2. **Create GitHub Issue** — push the ticket to GitHub using `gh issue create`, referencing the correct label
-3. **Sync to Project** — add the issue to the **Process Demo** project board (`gh project item-add`)
+3. **Sync to Project** — add the issue to the **claude-ops** project board (`gh project item-add`)
 4. **Add a plan** — create `plan.md` in the ticket folder outlining approach and steps
 5. **Do the work** — place any scripts, data, or research files inside the ticket folder
 6. **Move to Completed** — update the project board status when the work is done
